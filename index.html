@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ছাত্রছাত্রীদের জন্য</title>
+
+  <!-- Crisp Bengali & English Font for Mobile Screens -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ================================
+       1. CORPORATE GLOSSY PALETTE & RESET
+    ================================== */
+    :root {
+      --navy-deep: #09192f;
+      --navy-mid: #122d52;
+      --navy-light: #1b4375;
+      --sapphire: #0e637e;
+      --sapphire-bright: #147f9e;
+      --gold-accent: #d4a017;
+      --gold-soft: #f3d27a;
+      --fb-blue: #1877f2;
+      --fb-blue-dark: #0f5dc2;
+
+      --bg-body: #f1f5f9;
+      --surface: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #526277;
+      --border-subtle: #e2e8f0;
+
+      --shadow-card: 0 10px 28px -6px rgba(9, 25, 47, 0.08), 0 4px 10px -4px rgba(9, 25, 47, 0.04);
+      --shadow-gloss: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 16px -3px rgba(14, 99, 126, 0.35);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      background-image: radial-gradient(circle at top right, rgba(20, 127, 158, 0.06), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(18, 45, 82, 0.05), transparent 45%);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--sapphire);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    /* ================================
+       2. GLOSSY EXECUTIVE HEADER
+    ================================== */
+    .site-header {
+      position: relative;
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 58%, var(--navy-light) 100%);
+      color: #ffffff;
+      padding: 26px 16px 24px;
+      border-bottom: 3px solid var(--gold-accent);
+      box-shadow: 0 8px 24px rgba(9, 25, 47, 0.18);
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 55%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .site-subtitle {
+      font-size: 0.94rem;
+      font-weight: 400;
+      color: var(--gold-soft);
+      opacity: 0.95;
+    }
+
+    /* ================================
+       3. LAYOUT CONTAINER
+    ================================== */
+    .page-wrapper {
+      flex: 1;
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 22px 16px 32px;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* ================================
+       4. LEFT MAIN CONTENT
+    ================================== */
+    .top-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 5px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
+      border: 1px solid #d5dfea;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      box-shadow: 0 2px 5px rgba(9, 25, 47, 0.05);
+    }
+
+    .section-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold-accent);
+      box-shadow: 0 0 6px rgba(212, 160, 23, 0.7);
+    }
+
+    .fb-callout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #f7faff 100%);
+      border: 1px solid #dce6f2;
+      border-left: 4px solid var(--fb-blue);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy-mid);
+      box-shadow: 0 4px 12px rgba(9, 25, 47, 0.04);
+    }
+
+    .fb-circle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #2b88ff 0%, var(--fb-blue) 55%, var(--fb-blue-dark) 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 10px rgba(24, 119, 242, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .fb-circle-icon:hover {
+      transform: translateY(-1px) scale(1.04);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 14px rgba(24, 119, 242, 0.45);
+    }
+
+    /* Post Card (Glossy Corporate Surface) */
+    .post-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .post-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy-mid) 0%, var(--sapphire-bright) 70%, var(--gold-accent) 100%);
+    }
+
+    .post-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--navy-mid);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .post-excerpt {
+      font-size: 0.96rem;
+      color: #334155;
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 46px;
+      padding: 10px 22px;
+      background: linear-gradient(180deg, var(--sapphire-bright) 0%, var(--sapphire) 55%, #09495e 100%);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid #09495e;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: var(--shadow-gloss);
+      transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .read-more-btn:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .read-more-btn:active {
+      transform: translateY(0);
+    }
+
+    .post-divider-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(18, 45, 82, 0.14) 0%, rgba(20, 127, 158, 0.18) 50%, rgba(212, 160, 23, 0.25) 100%);
+      margin-bottom: 6px;
+    }
+
+    .no-results-msg {
+      display: none;
+      padding: 16px;
+      background: #ffffff;
+      border: 1px solid #f5c2b8;
+      border-left: 4px solid #d9482b;
+      border-radius: 10px;
+      color: #8f2612;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ================================
+       5. RIGHT SIDEBAR WIDGETS
+    ================================== */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .card-gloss-header {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy-deep) 100%);
+      color: #ffffff;
+      padding: 11px 16px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold-accent);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    /* Facebook Widget Wrapper */
+    .fb-official-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: #ffffff;
+      padding: 6px 0;
+    }
+
+    .fb-official-container iframe {
+      border: none;
+      overflow: hidden;
+      display: block;
+      max-width: 100%;
+    }
+
+    /* Custom Fallback Card Styles */
+    .fb-cover {
+      position: relative;
+      height: 116px;
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--sapphire) 65%, var(--gold-accent) 100%);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .fb-cover-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      color: var(--fb-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .fb-cover-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--navy-deep);
+      padding: 3px 12px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .fb-cover-sub {
+      font-size: 0.76rem;
+      background: rgba(9, 25, 47, 0.88);
+      color: var(--gold-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .fb-profile-body {
+      padding: 14px 16px 16px;
+    }
+
+    .fb-profile-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: -36px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .fb-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background: radial-gradient(circle, var(--navy-mid) 58%, var(--gold-accent) 100%);
+      color: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.63rem;
+      font-weight: 700;
+      line-height: 1.15;
+      padding: 4px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(9, 25, 47, 0.22);
+    }
+
+    .fb-page-meta {
+      padding-top: 26px;
+    }
+
+    .fb-page-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.25;
+    }
+
+    .fb-followers {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .fb-bio {
+      font-size: 0.83rem;
+      color: #475569;
+      margin-bottom: 8px;
+      line-height: 1.48;
+    }
+
+    .fb-category {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fb-follow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      min-height: 44px;
+      background: linear-gradient(180deg, #2b88ff 0%, var(--fb-blue) 55%, var(--fb-blue-dark) 100%);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #0e54b2;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 12px rgba(24, 119, 242, 0.3);
+      transition: filter 0.16s ease, transform 0.16s ease;
+    }
+
+    .fb-follow-btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    /* Exclusive Content Sidebar Widget */
+    .exclusive-list {
+      list-style: none;
+      padding: 6px 14px 10px;
+    }
+
+    .exclusive-list li {
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .exclusive-list li:last-child {
+      border-bottom: none;
+    }
+
+    .exclusive-list a {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 8px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: background-color 0.16s ease, color 0.16s ease, padding-left 0.16s ease;
+    }
+
+    .exclusive-list a:hover {
+      background-color: #f4f8fc;
+      color: var(--sapphire);
+      padding-left: 12px;
+    }
+
+    .star-icon {
+      color: var(--gold-accent);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      flex-shrink: 0;
+    }
+
+    /* Search Widget */
+    .search-body {
+      padding: 14px 16px 16px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      min-height: 44px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background-color: #f8fafc;
+      color: var(--text-main);
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .search-input:focus {
+      background-color: #ffffff;
+      border-color: var(--sapphire-bright);
+      box-shadow: 0 0 0 3px rgba(20, 127, 158, 0.15);
+    }
+
+    .search-btn {
+      min-height: 44px;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy-mid) 60%, var(--navy-deep) 100%);
+      color: #ffffff;
+      border: 1px solid var(--navy-deep);
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 3px 8px rgba(9, 25, 47, 0.2);
+      transition: filter 0.16s ease;
+    }
+
+    .search-btn:hover {
+      filter: brightness(1.12);
+    }
+
+    /* ================================
+       6. CORPORATE FOOTER
+    ================================== */
+    .site-footer {
+      background: linear-gradient(180deg, #0d213d 0%, var(--navy-deep) 100%);
+      color: #cbd5e1;
+      border-top: 2px solid var(--gold-accent);
+      text-align: center;
+      padding: 18px 16px 84px; /* Extra bottom space on mobile for floating button */
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ================================
+       7. FLOATING WHATSAPP BUTTON
+    ================================== */
+    .whatsapp-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 10px 20px 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #35e579 0%, #25d366 55%, #1cb956 100%);
+      color: #062b16;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1.5px solid rgba(255, 255, 255, 0.88);
+      box-shadow:
+        0 0 0 4px rgba(9, 25, 47, 0.28),
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.55),
+        0 10px 24px rgba(9, 25, 47, 0.35);
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.04);
+      box-shadow:
+        0 0 0 5px rgba(9, 25, 47, 0.35),
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.65),
+        0 14px 28px rgba(9, 25, 47, 0.42);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:active {
+      transform: translateY(0) scale(0.99);
+    }
+
+    .whatsapp-float svg {
+      width: 22px;
+      height: 22px;
+      fill: #062b16;
+      flex-shrink: 0;
+    }
+
+    /* ================================
+       8. DESKTOP RESPONSIVE BREAKPOINT
+    ================================== */
+    @media (min-width: 768px) {
+      .site-header {
+        padding: 34px 28px 30px;
+      }
+
+      .site-title {
+        font-size: 2.25rem;
+      }
+
+      .site-subtitle {
+        font-size: 1.02rem;
+      }
+
+      .page-wrapper {
+        padding: 32px 28px 44px;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr 310px;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .post-card {
+        padding: 26px 24px;
+      }
+
+      .site-footer {
+        padding: 22px 16px;
+      }
+
+      .whatsapp-float {
+        right: 24px;
+        bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GLOSSY CORPORATE HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">ছাত্রছাত্রীদের জন্য</h1>
+      <p class="site-subtitle">টিউসন ছাড়াই নিজের পড়া একা একা নিজে করো</p>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- MAIN 2-COLUMN LAYOUT -->
+    <div class="content-layout">
+
+      <!-- LEFT COLUMN: MAIN CONTENT AREA -->
+      <main class="main-column">
+        <div class="top-bar-row">
+          <div class="section-badge">Exclusive Contents</div>
+
+          <div class="fb-callout">
+            <span>Follow us on Facebook for regular updates</span>
+            <a href="https://www.facebook.com/chhatrochatri/" id="topFbIconLink" target="_blank" rel="noopener" class="fb-circle-icon" aria-label="Follow on Facebook" title="Follow on Facebook">f</a>
+          </div>
+        </div>
+
+        <div id="noResults" class="no-results-msg">
+          দুঃখিত, আপনার খোঁজা শব্দটির সাথে কোনো পোস্ট পাওয়া যায়নি।
+          <button type="button" id="resetSearchBtn" style="margin-left:8px; background:none; border:none; color:#0e637e; font-weight:700; cursor:pointer; text-decoration:underline;">সব দেখুন</button>
+        </div>
+
+        <!-- POST LIST -->
+        <div id="postsContainer">
+          <article class="post-card" data-title="শিক্ষক ছাড়াই প্রথমবার একটি অধ্যায় পড়া">
+            <h2 class="post-title">শিক্ষক ছাড়াই প্রথমবার একটি অধ্যায় পড়া</h2>
+            <p class="post-excerpt">
+              শিক্ষক ছাড়া নিজে নিজে প্রথমবার কোনো নতুন অধ্যায় পড়তে গিয়ে খেই হারিয়ে ফেলছেন? এই লেখাটি পড়লে আপনি বুঝতে পারবেন কীভাবে বইয়ের মূল বক্তব্য, ব্যাখ্যা আর উদাহরণগুলোকে আলাদা করে চিনতে হয়। শুধু তা-ই নয়, AI-কে নিজের পড়ার সঙ্গী বানিয়ে আর সহজ Concept Map তৈরি করে কোনো মুখস্থবিদ্যা ছাড়াই পুরো অধ্যায়টা জলের মতো পরিষ্কার করে নেওয়ার দারুণ একটা কৌশলও আপনি এখান থেকে শিখে যাবেন।
+            </p>
+            <!-- এখানে href="..." এর ভেতরে আপনার নির্দিষ্ট Facebook পোস্টটির লিংক বসিয়ে দিন -->
+            <a href="https://www.facebook.com/chhatrochatri/" target="_blank" rel="noopener" class="read-more-btn">
+              সম্পূর্ণ পোস্ট পড়ুন →
+            </a>
+          </article>
+        </div>
+
+        <div class="post-divider-bar"></div>
+      </main>
+
+      <!-- RIGHT COLUMN: SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- FACEBOOK PAGE WIDGET (Header & Follow Button Only - No Posts) -->
+        <section class="sidebar-card" id="fbWidgetCard" aria-label="Facebook Page">
+          <div class="card-gloss-header">
+            <span>অফিশিয়াল ফেসবুক পেজ</span>
+          </div>
+
+          <!-- Official Responsive Plugin Container -->
+          <div id="fbOfficialContainer" class="fb-official-container"></div>
+
+          <!-- Custom Fallback Card (Used if useOfficialPlugin is set to false) -->
+          <div id="fbCustomFallback" style="display:none;">
+            <div class="fb-cover">
+              <span class="fb-cover-badge">f</span>
+              <div class="fb-cover-title">ছাত্রছাত্রীদের জন্য</div>
+              <div class="fb-cover-sub">টিউসন ছাড়াই নিজের পড়া একা একা নিজে করো!</div>
+            </div>
+
+            <div class="fb-profile-body">
+              <div class="fb-profile-header">
+                <div class="fb-avatar">ছাত্রছাত্রীদের<br>জন্য</div>
+                <div class="fb-page-meta">
+                  <div class="fb-page-name">ছাত্রছাত্রীদের জন্য</div>
+                  <div class="fb-followers">0 followers</div>
+                </div>
+              </div>
+
+              <p class="fb-bio">
+                স্কুলপড়ুয়া ছাত্রছাত্রীদের নিজের চেষ্টায় পড়াশোনা করতে, কঠিন বিষয় বুঝতে...
+              </p>
+
+              <div class="fb-category">
+                <span>📖</span> <span>Education</span>
+              </div>
+
+              <a href="https://www.facebook.com/chhatrochatri/" id="cardFbFollowBtn" target="_blank" rel="noopener" class="fb-follow-btn">
+                <span>🔒</span> Follow
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXCLUSIVE CONTENT SIDEBAR BOX -->
+        <section class="sidebar-card">
+          <div class="card-gloss-header">
+            <span>এক্সক্লুসিভ কন্টেন্ট</span>
+          </div>
+          <ul class="exclusive-list">
+            <li>
+              <a href="#"><span class="star-icon">★</span><span>স্পেশাল পোস্ট বা ভিডিওর শিরোনাম ১</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="star-icon">★</span><span>স্পেশাল পোস্ট বা ভিডিওর শিরোনাম ২</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="star-icon">★</span><span>স্পেশাল পোস্ট বা ভিডিওর শিরোনাম ৩</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="star-icon">★</span><span>স্পেশাল পোস্ট বা ভিডিওর শিরোনাম ৪</span></a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- SEARCH WIDGET -->
+        <section class="sidebar-card">
+          <div class="card-gloss-header">
+            <span>Search Contents</span>
+          </div>
+          <div class="search-body">
+            <form class="search-form" id="blogSearchForm">
+              <input type="search" id="searchInput" class="search-input" placeholder="বিষয় খুঁজুন..." aria-label="Search Contents" />
+              <button type="submit" class="search-btn">Search</button>
+            </form>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="#" id="whatsappFloatBtn" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp করুন">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 2.667C8.647 2.667 2.667 8.647 2.667 16c0 2.353.613 4.651 1.778 6.678L2.667 29.333l6.835-1.747A13.26 13.26 0 0 0 16 29.333c7.353 0 13.333-5.98 13.333-13.333S23.353 2.667 16 2.667zm7.768 18.887c-.324.916-1.883 1.752-2.616 1.855-.68.096-1.541.136-2.487-.164-.575-.183-1.314-.428-2.256-.834-3.972-1.716-6.565-5.73-6.764-5.995-.198-.265-1.615-2.148-1.615-4.098s1.022-2.908 1.384-3.305c.363-.397.791-.496 1.055-.496.264 0 .528.003.759.014.244.012.57-.093.892.681.324.782 1.104 2.695 1.202 2.893.098.198.163.43.033.694-.131.265-.196.43-.393.661-.198.232-.416.517-.594.694-.198.198-.404.413-.173.81.231.397 1.026 1.693 2.203 2.742 1.514 1.35 2.791 1.768 3.188 1.966.396.199.627.166.858-.099.231-.265.99-1.157 1.254-1.554.264-.397.528-.331.891-.198.363.132 2.309 1.089 2.705 1.287.396.198.66.298.759.463.098.165.098.958-.226 1.874z"/>
+    </svg>
+    <span>WhatsApp করুন</span>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* =========================================================================
+       সহজ সেটিংস (Facebook ও WhatsApp নম্বর এখানে কনফিগার করুন)
+    ========================================================================= */
+    const BLOG_CONFIG = {
+      facebookPageUrl: "https://www.facebook.com/chhatrochatri/",
+      useOfficialPlugin: true,
+
+      // দেশের কোডসহ আপনার ১০ সংখ্যার WhatsApp নম্বর দিন (কোনো + বা স্পেস ছাড়া, যেমন: "919830012345")
+      whatsappNumber: "91XXXXXXXXXX",
+      whatsappMessage: "নমস্কার! 'ছাত্রছাত্রীদের জন্য' ওয়েবসাইট থেকে যোগাযোগ করছি।"
+    };
+
+    /* =========================================================================
+       1. FLOATING WHATSAPP CONFIGURATION
+    ========================================================================= */
+    function setupWhatsAppButton() {
+      const waBtn = document.getElementById("whatsappFloatBtn");
+      const rawNumber = (BLOG_CONFIG.whatsappNumber || "").trim();
+      const isPlaceholder = !rawNumber || rawNumber.includes("X");
+
+      if (isPlaceholder) {
+        waBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          alert("অনুগ্রহ করে HTML কোডের BLOG_CONFIG অংশে আপনার আসল WhatsApp নম্বরটি বসিয়ে নিন।");
+        });
+      } else {
+        const cleanNumber = rawNumber.replace(/[^0-9]/g, "");
+        const encodedText = encodeURIComponent(BLOG_CONFIG.whatsappMessage || "");
+        waBtn.href = `https://wa.me/${cleanNumber}?text=${encodedText}`;
+      }
+    }
+
+    setupWhatsAppButton();
+
+    /* =========================================================================
+       2. FACEBOOK PAGE AUTO-CONFIGURATION (Header Only, 100% Mobile Adaptive)
+    ========================================================================= */
+    function setupFacebookWidget() {
+      const fbUrl = BLOG_CONFIG.facebookPageUrl;
+
+      document.getElementById("topFbIconLink").href = fbUrl;
+      document.getElementById("cardFbFollowBtn").href = fbUrl;
+
+      const officialBox = document.getElementById("fbOfficialContainer");
+      const customBox = document.getElementById("fbCustomFallback");
+
+      if (BLOG_CONFIG.useOfficialPlugin) {
+        customBox.style.display = "none";
+        officialBox.style.display = "flex";
+
+        let lastRenderedWidth = 0;
+
+        const renderIframe = () => {
+          const cardWidth = document.getElementById("fbWidgetCard").clientWidth || 300;
+          const pluginWidth = Math.min(Math.max(cardWidth, 180), 500);
+
+          if (pluginWidth === lastRenderedWidth) return;
+          lastRenderedWidth = pluginWidth;
+
+          const pluginHeight = 130;
+          const encodedUrl = encodeURIComponent(fbUrl);
+
+          officialBox.innerHTML = `
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=${encodedUrl}&tabs=&width=${pluginWidth}&height=${pluginHeight}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+              width="${pluginWidth}"
+              height="${pluginHeight}"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="ছাত্রছাত্রীদের জন্য - Facebook Page">
+            </iframe>
+          `;
+        };
+
+        renderIframe();
+
+        let resizeTimer;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(renderIframe, 350);
+        });
+      } else {
+        officialBox.style.display = "none";
+        customBox.style.display = "block";
+      }
+    }
+
+    setupFacebookWidget();
+
+    /* =========================================================================
+       3. LIVE SEARCH FUNCTIONALITY
+    ========================================================================= */
+    const searchForm = document.getElementById('blogSearchForm');
+    const searchInput = document.getElementById('searchInput');
+    const posts = document.querySelectorAll('.post-card');
+    const noResultsMsg = document.getElementById('noResults');
+    const resetSearchBtn = document.getElementById('resetSearchBtn');
+
+    function filterPosts(query) {
+      const term = query.trim().toLowerCase();
+      let visibleCount = 0;
+
+      posts.forEach(post => {
+        const text = post.innerText.toLowerCase();
+        if (term === '' || text.includes(term)) {
+          post.style.display = 'block';
+          visibleCount++;
+        } else {
+          post.style.display = 'none';
+        }
+      });
+
+      noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    function resetSearch() {
+      searchInput.value = '';
+      filterPosts('');
+    }
+
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      filterPosts(searchInput.value);
+    });
+
+    searchInput.addEventListener('input', function() {
+      if (this.value === '') filterPosts('');
+    });
+
+    resetSearchBtn.addEventListener('click', resetSearch);
+  </script>
+</body>
+</html>
